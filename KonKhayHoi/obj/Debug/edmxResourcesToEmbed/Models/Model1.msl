@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KonKhayHoiModelStoreContainer" CdmEntityContainer="KonKhayHoiEntities">
+    <EntitySetMapping Name="admins">
+      <EntityTypeMapping TypeName="KonKhayHoiModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="Profit" ColumnName="Profit" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="A_name" ColumnName="A_name" />
+          <ScalarProperty Name="A_lastname" ColumnName="A_lastname" />
+          <ScalarProperty Name="A_tel" ColumnName="A_tel" />
+          <ScalarProperty Name="A_pass" ColumnName="A_pass" />
+          <ScalarProperty Name="A_Investment" ColumnName="A_Investment" />
+          <ScalarProperty Name="A_no" ColumnName="A_no" />
+          <ScalarProperty Name="A_subD" ColumnName="A_subD" />
+          <ScalarProperty Name="A_sub" ColumnName="A_sub" />
+          <ScalarProperty Name="A_ProV" ColumnName="A_ProV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Circulations">
+      <EntityTypeMapping TypeName="KonKhayHoiModel.Circulation">
+        <MappingFragment StoreEntitySet="Circulation">
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="Invest" ColumnName="Invest" />
+          <ScalarProperty Name="Circulation1" ColumnName="Circulation" />
+          <ScalarProperty Name="FID" ColumnName="FID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expenditures">
+      <EntityTypeMapping TypeName="KonKhayHoiModel.Expenditure">
+        <MappingFragment StoreEntitySet="Expenditure">
+          <ScalarProperty Name="EID" ColumnName="EID" />
+          <ScalarProperty Name="E_date" ColumnName="E_date" />
+          <ScalarProperty Name="E_list" ColumnName="E_list" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="payor" ColumnName="payor" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Farms">
+      <EntityTypeMapping TypeName="KonKhayHoiModel.Farm">
+        <MappingFragment StoreEntitySet="Farm">
+          <ScalarProperty Name="FID" ColumnName="FID" />
+          <ScalarProperty Name="F_name" ColumnName="F_name" />
+          <ScalarProperty Name="F_tel" ColumnName="F_tel" />
+          <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+          <ScalarProperty Name="MonthOfSale" ColumnName="MonthOfSale" />
+          <ScalarProperty Name="F_no" ColumnName="F_no" />
+          <ScalarProperty Name="F_subD" ColumnName="F_subD" />
+          <ScalarProperty Name="F_sub" ColumnName="F_sub" />
+          <ScalarProperty Name="F_ProV" ColumnName="F_ProV" />
+          <ScalarProperty Name="Invest" ColumnName="Invest" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lasts">
+      <EntityTypeMapping TypeName="KonKhayHoiModel.last">
+        <MappingFragment StoreEntitySet="last">
+          <ScalarProperty Name="no" ColumnName="no" />
+          <ScalarProperty Name="lastA" ColumnName="lastA" />
+          <ScalarProperty Name="lastP" ColumnName="lastP" />
+          <ScalarProperty Name="lastS" ColumnName="lastS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Partners">
+      <EntityTypeMapping TypeName="KonKhayHoiModel.Partner">
+        <MappingFragment StoreEntitySet="Partner">
+          <ScalarProperty Name="Profit" ColumnName="Profit" />
+          <ScalarProperty Name="Invest" ColumnName="Invest" />
+          <ScalarProperty Name="PID" ColumnName="PID" />
+          <ScalarProperty Name="P_name" ColumnName="P_name" />
+          <ScalarProperty Name="P_lastname" ColumnName="P_lastname" />
+          <ScalarProperty Name="P_tel" ColumnName="P_tel" />
+          <ScalarProperty Name="P_pass" ColumnName="P_pass" />
+          <ScalarProperty Name="P_investment" ColumnName="P_investment" />
+          <ScalarProperty Name="P_no" ColumnName="P_no" />
+          <ScalarProperty Name="P_subD" ColumnName="P_subD" />
+          <ScalarProperty Name="P_sub" ColumnName="P_sub" />
+          <ScalarProperty Name="P_ProV" ColumnName="P_ProV" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Revenues">
+      <EntityTypeMapping TypeName="KonKhayHoiModel.Revenue">
+        <MappingFragment StoreEntitySet="Revenues">
+          <ScalarProperty Name="RID" ColumnName="RID" />
+          <ScalarProperty Name="R_date" ColumnName="R_date" />
+          <ScalarProperty Name="R_list" ColumnName="R_list" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Shop" ColumnName="Shop" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="payee" ColumnName="payee" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shops">
+      <EntityTypeMapping TypeName="KonKhayHoiModel.Shop">
+        <MappingFragment StoreEntitySet="Shop">
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="S_name" ColumnName="S_name" />
+          <ScalarProperty Name="S_lastname" ColumnName="S_lastname" />
+          <ScalarProperty Name="S_tel" ColumnName="S_tel" />
+          <ScalarProperty Name="purchasedAmount" ColumnName="purchasedAmount" />
+          <ScalarProperty Name="S_pass" ColumnName="S_pass" />
+          <ScalarProperty Name="S_no" ColumnName="S_no" />
+          <ScalarProperty Name="S_subD" ColumnName="S_subD" />
+          <ScalarProperty Name="S_sub" ColumnName="S_sub" />
+          <ScalarProperty Name="S_ProV" ColumnName="S_ProV" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

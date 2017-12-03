@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KonKhayHoiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="AID" />
+    </Key>
+    <Property Name="AID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="A_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="A_lastname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="A_tel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="A_pass" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="A_Investment" Type="Int32" />
+    <Property Name="A_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="A_subD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="A_sub" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="A_ProV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Farms" Relationship="Self.FK_Farm_admin" FromRole="admin" ToRole="Farm" />
+    <NavigationProperty Name="Partners" Relationship="Self.FK_Partner_admin" FromRole="admin" ToRole="Partner" />
+    <Property Name="Profit" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Circulation">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Invest" Type="Int32" />
+    <Property Name="Circulation1" Type="Int32" />
+    <Property Name="FID" Type="Int32" />
+    <NavigationProperty Name="Expenditures" Relationship="Self.FK_Expenditure_Circulation" FromRole="Circulation" ToRole="Expenditure" />
+    <NavigationProperty Name="Revenues" Relationship="Self.FK_Revenues_Circulation" FromRole="Circulation" ToRole="Revenues" />
+    <NavigationProperty Name="Farm" Relationship="KonKhayHoiModel.FK_Circulation_Farm" FromRole="Circulation" ToRole="Farm" />
+  </EntityType>
+  <EntityType Name="Expenditure">
+    <Key>
+      <PropertyRef Name="EID" />
+    </Key>
+    <Property Name="EID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="E_date" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="E_list" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Int32" />
+    <Property Name="payor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="note" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CID" Type="Int32" />
+    <NavigationProperty Name="Circulation" Relationship="Self.FK_Expenditure_Circulation" FromRole="Expenditure" ToRole="Circulation" />
+  </EntityType>
+  <EntityType Name="Farm">
+    <Key>
+      <PropertyRef Name="FID" />
+    </Key>
+    <Property Name="FID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="F_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="F_tel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="dateStart" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MonthOfSale" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="F_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="F_subD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="F_sub" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="F_ProV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Invest" Type="Int32" />
+    <Property Name="AID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="admin" Relationship="Self.FK_Farm_admin" FromRole="Farm" ToRole="admin" />
+    <NavigationProperty Name="Circulations" Relationship="KonKhayHoiModel.FK_Circulation_Farm" FromRole="Farm" ToRole="Circulation" />
+  </EntityType>
+  <EntityType Name="last">
+    <Key>
+      <PropertyRef Name="no" />
+    </Key>
+    <Property Name="no" Type="Int32" Nullable="false" />
+    <Property Name="lastA" Type="Int32" />
+    <Property Name="lastP" Type="Int32" />
+    <Property Name="lastS" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Partner">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="PID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="P_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="P_lastname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="P_tel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="P_pass" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="P_investment" Type="Int32" />
+    <Property Name="P_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="P_subD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="P_sub" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="P_ProV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="admin" Relationship="Self.FK_Partner_admin" FromRole="Partner" ToRole="admin" />
+    <Property Name="Invest" Type="Int32" />
+    <Property Name="Profit" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Revenue">
+    <Key>
+      <PropertyRef Name="RID" />
+    </Key>
+    <Property Name="RID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="R_date" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="R_list" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Weight" Type="Int32" Nullable="false" />
+    <Property Name="Shop" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="amount" Type="Int32" Nullable="false" />
+    <Property Name="payee" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Circulation" Relationship="Self.FK_Revenues_Circulation" FromRole="Revenues" ToRole="Circulation" />
+  </EntityType>
+  <EntityType Name="Shop">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="S_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="S_lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="S_tel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="purchasedAmount" Type="Int32" />
+    <Property Name="S_pass" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="S_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="S_subD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="S_sub" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="S_ProV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_Farm_admin">
+    <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+    <End Role="Farm" Type="Self.Farm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="Farm">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Partner_admin">
+    <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+    <End Role="Partner" Type="Self.Partner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="Partner">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Expenditure_Circulation">
+    <End Role="Circulation" Type="Self.Circulation" Multiplicity="0..1" />
+    <End Role="Expenditure" Type="Self.Expenditure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Circulation">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Expenditure">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Revenues_Circulation">
+    <End Role="Circulation" Type="Self.Circulation" Multiplicity="1" />
+    <End Role="Revenues" Type="Self.Revenue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Circulation">
+        <PropertyRef Name="CID" />
+      </Principal>
+      <Dependent Role="Revenues">
+        <PropertyRef Name="CID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KonKhayHoiEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="admins" EntityType="Self.admin" />
+    <EntitySet Name="Circulations" EntityType="Self.Circulation" />
+    <EntitySet Name="Expenditures" EntityType="Self.Expenditure" />
+    <EntitySet Name="Farms" EntityType="Self.Farm" />
+    <EntitySet Name="lasts" EntityType="Self.last" />
+    <EntitySet Name="Partners" EntityType="Self.Partner" />
+    <EntitySet Name="Revenues" EntityType="Self.Revenue" />
+    <EntitySet Name="Shops" EntityType="Self.Shop" />
+    <AssociationSet Name="FK_Farm_admin" Association="Self.FK_Farm_admin">
+      <End Role="admin" EntitySet="admins" />
+      <End Role="Farm" EntitySet="Farms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Partner_admin" Association="Self.FK_Partner_admin">
+      <End Role="admin" EntitySet="admins" />
+      <End Role="Partner" EntitySet="Partners" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Expenditure_Circulation" Association="Self.FK_Expenditure_Circulation">
+      <End Role="Circulation" EntitySet="Circulations" />
+      <End Role="Expenditure" EntitySet="Expenditures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Revenues_Circulation" Association="Self.FK_Revenues_Circulation">
+      <End Role="Circulation" EntitySet="Circulations" />
+      <End Role="Revenues" EntitySet="Revenues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Circulation_Farm" Association="KonKhayHoiModel.FK_Circulation_Farm">
+      <End Role="Farm" EntitySet="Farms" />
+      <End Role="Circulation" EntitySet="Circulations" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_Circulation_Farm">
+    <End Type="KonKhayHoiModel.Farm" Role="Farm" Multiplicity="0..1" />
+    <End Type="KonKhayHoiModel.Circulation" Role="Circulation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farm">
+        <PropertyRef Name="FID" />
+      </Principal>
+      <Dependent Role="Circulation">
+        <PropertyRef Name="FID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

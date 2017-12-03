@@ -1,0 +1,128 @@
+﻿@model List<KonKhayHoi.Models.Circulation>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+    <title>Kon Khay Hoi</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="~/bootstrap/style/images/konKhayHoi.png">
+    <link rel="stylesheet" type="text/css" href="~/bootstrap/style/css/style.css" media="all">
+    <link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="style/css/ie7.css" media="all">
+    <![endif]-->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="style/css/ie8.css" media="all">
+    <![endif]-->
+    <!--[if IE 9]>
+    <link rel="stylesheet" type="text/css" href="style/css/ie9.css" media="all">
+    <![endif]-->
+    <script src="~/bootstrap/style/js/jquery-1.6.4.min.js"></script>
+    <script src="~/bootstrap/style/js/ddsmoothmenu.js"></script>
+    <script src="~/bootstrap/style/js/jquery.jcarousel.js"></script>
+    <script src="~/bootstrap/style/js/jquery.prettyPhoto.js"></script>
+    <script src="~/bootstrap/style/js/carousel.js"></script>
+    <script src="~/bootstrap/style/js/jquery.flexslider-min.js"></script>
+    <script src="~/bootstrap/style/js/jquery.masonry.min.js"></script>
+    <script src="~/bootstrap/style/js/jquery.slickforms.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="sidebar">
+            <div id="logo"><center><img src="~/bootstrap/style/images/logo.png"></center></div>
+            <div id="menu" class="menu-v">
+                <ul>
+                    <li><a class="active" onclick="location.href='@Url.Action("dataFarm", "farm")';">ข้อมูลฟาร์ม</a></li>
+                    <li><a class="active" onclick="location.href='@Url.Action("profile", "Admin")';">แก้ไขข้อมูลส่วนตัว</a></li>
+                    <li><a class="active" onclick="location.href='@Url.Action("addRevenue", "farm")';">รายได้</a></li>
+                    <li><a class="active" onclick="location.href='@Url.Action("addExpenditure", "farm")';">รายจ่าย</a></li>
+                    <li><a class="active" onclick="location.href='@Url.Action("CheckProfit", "Admin")';">ตรวจสอบกำไร</a></li>
+                    <li><a class="active" onclick="location.href='@Url.Action("Circulation", "Admin")';">ตรวจสอบยอดขาย</a></li>
+                    <li><a class="active" onclick="location.href='@Url.Action("ViewPN", "partner")';">เพิ่ม แก้ไข(หุ้นส่วน)</a></li>
+                    <li><a class="active" onclick="location.href='@Url.Action("Viewstore", "shop")';">ดูข้อมูลร้านรับซื้อ</a></li>
+                    <li><a class="active" onclick="location.href='@Url.Action("changPassword", "Admin")';">เปลี่ยนรหัสผ่าน</a></li>
+                    <li><a class="active" onclick="location.href='@Url.Action("login", "login")';">ออกจากระบบ</a></li> 
+
+                </ul>
+            </div>
+        </div>
+
+        <div id="content">
+            <font color="#fffff"> <h5 class="title">สวัสดี คุณ @HttpContext.Current.Session["A_name"] @HttpContext.Current.Session["A_lastname"]</h5>  </font>
+            <div class="line"></div>
+            <div class="container-fluid">
+
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong><img src="~/bootstrap/style/images/datafarm.png"></strong>
+                                </div>
+                                <div style="width:100%; height:500px; overflow-y: scroll; scrollbar-arrow-color:blue; scrollbar-face-color: #e7e7e7; scrollbar-3dlight-color: #a0a0a0; scrollbar-darkshadow-color:#888888">
+                                    <div class="card-block">
+                                        <div class="row">
+
+                                            <div class="col-sm-13">
+                                                <div class="card">
+                                                    <div style="margin:auto;width:80%;">
+                                                        <div id="chart_div" style="margin:auto;width:600px;height:400px;"></div>
+                                                    </div>
+
+                                                    <script type="text/javascript">
+                                                        google.charts.load('current', { 'packages': ['corechart'] });
+                                                        google.charts.setOnLoadCallback(drawChart);
+
+                                                        function drawChart() {
+                                                            var dataTable = new google.visualization.DataTable();
+                                                            dataTable.addColumn('number', 'Invest');
+                                                            dataTable.addColumn('number', 'Circulation');
+
+
+
+                                                            console.log(dataTable);
+
+                                                            @for (var i = 0; i < Model.Count; i++) {
+                                                                @: dataTable.addRow([@Model.ElementAt(i).Invest, @Model.ElementAt(i).Circulation1]);
+                                                            }
+
+                                                            var options = {
+                                                                title: "ยอดขาย",
+                                                                hAxis: { title: 'รอบการลงทุน', titleTextStyle: { color: 'red' } },
+                                                                vAxis: { title: 'จำนวนเงิน', titleTextStyle: { color: 'blue' } },
+                                                                width: 550,
+                                                                height: 400,
+                                                                bar: { groupWidth: "50%" },
+                                                                legend: { position: 'right', maxLines: 3 },
+                                                                tooltip: { trigger: 'select' }
+                                                            };
+
+                                                            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                                                            chart.draw(dataTable, options);
+                                                        }
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <script src="~/bootstrap/style/js/scripts.js"></script>
+    <!--[if !IE]> -->
+    <script src="~/bootstrap/style/js/jquery.corner.js"></script>
+    <!-- <![endif]-->
+</body>
+</html>
+

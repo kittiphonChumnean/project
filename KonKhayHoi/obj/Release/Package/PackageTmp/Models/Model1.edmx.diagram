@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="87914ac72754479dab310829d391e239" Name="Diagram1">
+        <EntityTypeShape EntityType="KonKhaiHoyModel.admin" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KonKhaiHoyModel.Circulation" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KonKhaiHoyModel.Expenditure" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KonKhaiHoyModel.Farm" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KonKhaiHoyModel.last" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KonKhaiHoyModel.Partner" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KonKhaiHoyModel.Revenue" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KonKhaiHoyModel.Shop" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KonKhaiHoyModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="KonKhaiHoyModel.FK_Farm_admin" ManuallyRouted="false" />
+        <AssociationConnector Association="KonKhaiHoyModel.FK_Partner_admin" ManuallyRouted="false" />
+        <AssociationConnector Association="KonKhaiHoyModel.FK_Circulation_Farm" ManuallyRouted="false" />
+        <AssociationConnector Association="KonKhaiHoyModel.FK_Expenditure_Circulation" ManuallyRouted="false" />
+        <AssociationConnector Association="KonKhaiHoyModel.FK_Revenues_Circulation" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

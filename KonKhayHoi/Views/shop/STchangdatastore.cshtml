@@ -1,0 +1,162 @@
+﻿@model Tuple<List<KonKhayHoi.Models.Shop>>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+    <title>Kon Khay Hoi</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="~/bootstrap/style/images/konKhayHoi.png">
+    <link rel="stylesheet" type="text/css" href="~/bootstrap/style/css/style.css" media="all">
+    <link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+    <script src="~/bootstrap/style/js/jquery-1.6.4.min.js"></script>
+    <script src="~/bootstrap/style/js/ddsmoothmenu.js"></script>
+    <script src="~/bootstrap/style/js/jquery.jcarousel.js"></script>
+    <script src="~/bootstrap/style/js/jquery.prettyPhoto.js"></script>
+    <script src="~/bootstrap/style/js/carousel.js"></script>
+    <script src="~/bootstrap/style/js/jquery.flexslider-min.js"></script>
+    <script src="~/bootstrap/style/js/jquery.masonry.min.js"></script>
+    <script src="~/bootstrap/style/js/jquery.slickforms.js"></script>
+</head>
+@using (Html.BeginForm())
+{
+    <body>
+
+        <div id="wrapper">
+            @Html.AntiForgeryToken()
+            <div id="sidebar">
+                <div id="logo"><center><img src="~/bootstrap/style/images/logo.png"></center></div>
+                <div id="menu" class="menu-v">
+                    <ul>
+                        
+                        <li><a href="showList.php" class="active"></a></li>
+                        <li><a class="active" onclick="location.href='@Url.Action("STdatastore", "Shop")';">ข้อมูลร้าน</a></li>
+                        <li><a class="active" onclick="location.href='@Url.Action("STselectdatafarm", "Shop")';">ข้อมูลฟาร์ม</a></li>
+                        <li><a class="active" onclick="location.href='@Url.Action("STchangPassword", "Shop")';">เปลี่ยนรหัสผ่าน</a></li>
+                        <li><a class="active" onclick="location.href='@Url.Action("login", "login")';">ออกจากระบบ</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="content">
+                <font color="#fffff">  <h5 class="title">สวัสดี คุณ @HttpContext.Current.Session["S_name"] @HttpContext.Current.Session["S_lastname"]</h5></font>
+                <div class="line"></div>
+                <div class="container-fluid">
+
+                    <div class="animated fadeIn">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong><img src="~/bootstrap/style/images/profile.png"></strong>
+                                    </div>
+                                    <div style="width:100%; height:400px; overflow-y: scroll; scrollbar-arrow-color:blue; scrollbar-face-color: #e7e7e7; scrollbar-3dlight-color: #a0a0a0; scrollbar-darkshadow-color:#888888">
+                                        <div class="card-block">
+                                            <div class="row">
+
+                                                <div class="col-sm-12">
+
+                                                    <div class="form-group">
+                                                        <label for="name">ชื่อผู้ใช้</label>
+                                                        <input type="text" class="form-control" id="name" name="username_update" value="@HttpContext.Current.Session["username_update"]" readonly placeholder="">
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="name">ชื่อร้านรับซื้อ</label>
+                                                        <input type="text" class="form-control" id="name" name="name_update" value="@HttpContext.Current.Session["name"]" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="cvv">ชื่อ</label>
+                                                        <input type="text" class="form-control" id="cvv" name="names_update" value="@HttpContext.Current.Session["Sname"]" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="cvv">นามสกุุล</label>
+                                                        <input type="text" class="form-control" name="lastname_update" value="@HttpContext.Current.Session["Slastname"]" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/.row-->
+                                            <div class="row">
+                                                <div class="col-sm-12">
+
+                                                    <div class="form-group">
+                                                        <label for="ccnumber">เบอร์โทร</label>
+                                                        <input type="text" class="form-control" name="tel_update" id="ccnumber" value="@HttpContext.Current.Session["Stel"]" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/.row-->
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label for="cvv">บ้านเลขที่</label>
+                                                        <input type="text" class="form-control" name="no_update" id="cvv" value="@HttpContext.Current.Session["Sno"]" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+
+                                                    <div class="form-group">
+                                                        <label for="cvv">ตำบล</label>
+                                                        <input type="text" class="form-control" name="subD_update" id="cvv" value="@HttpContext.Current.Session["SsubD"]" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/.row-->
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label for="cvv">อำเภอ</label>
+                                                        <input type="text" class="form-control" name="sub_update" id="cvv" value="@HttpContext.Current.Session["Ssub"]" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label for="cvv">จังหวัด</label>
+                                                        <input type="text" class="form-control" name="proV_update" id="cvv" value="@HttpContext.Current.Session["SproV"]" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label for="ccnumber">จำนวนที่รับซื้อ(ต่อตัน)</label>
+                                                        <input type="text" class="form-control" name="SpurchasedAmount_update" id="ccnumber" value="@HttpContext.Current.Session["SpurchasedAmount"]" placeholder="เฉพาะตัวเลข">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <br>
+                                        <div class="form-group form-actions">
+                                            <font size="10" color="green">&nbsp;&nbsp;@ViewBag.Message</font>
+                                            <center>
+                                                <button type="submit" class="btn btn-success btn-lg">&nbsp;&nbsp;&nbsp;บันทึก&nbsp;&nbsp;&nbsp;</button>&nbsp;&nbsp;
+                                            </center>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <script src="~/bootstrap/style/js/scripts.js"></script>
+            <!--[if !IE]> -->
+            <script src="~/bootstrap/style/js/jquery.corner.js"></script>
+    </body>
+}
+</html>
+
+

@@ -1,0 +1,127 @@
+﻿@model Tuple<List<KonKhayHoi.Models.admin>, List<KonKhayHoi.Models.Partner>>
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Kon Khay Hoi</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="~/bootstrap/style/images/konKhayHoi.png">
+    <link rel="stylesheet" type="text/css" href="~/bootstrap/style/css/style.css" media="all">
+    <link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+    <script src="~/bootstrap/style/js/jquery-1.6.4.min.js"></script>
+    <script src="~/bootstrap/style/js/ddsmoothmenu.js"></script>
+    <script src="~/bootstrap/style/js/jquery.jcarousel.js"></script>
+    <script src="~/bootstrap/style/js/jquery.prettyPhoto.js"></script>
+    <script src="~/bootstrap/style/js/carousel.js"></script>
+    <script src="~/bootstrap/style/js/jquery.flexslider-min.js"></script>
+    <script src="~/bootstrap/style/js/jquery.masonry.min.js"></script>
+    <script src="~/bootstrap/style/js/jquery.slickforms.js"></script>
+</head>
+@using (Html.BeginForm())
+{
+    <body>
+        <div id="wrapper">
+            @Html.AntiForgeryToken()
+            <div id="sidebar">
+                <div id="logo"><center><img src="~/bootstrap/style/images/logo.png"></center></div>
+                <div id="menu" class="menu-v">
+                    <ul>
+                        <li><a class="active" onclick="location.href='@Url.Action("dataFarm", "farm")';">ข้อมูลฟาร์ม</a></li>
+                        <li><a class="active" onclick="location.href='@Url.Action("profile", "Admin")';">แก้ไขข้อมูลส่วนตัว</a></li>
+                        <li><a class="active" onclick="location.href='@Url.Action("addRevenue", "farm")';">รายได้</a></li>
+                        <li><a class="active" onclick="location.href='@Url.Action("addExpenditure", "farm")';">รายจ่าย</a></li>
+                        <li><a class="active" onclick="location.href='@Url.Action("CheckProfit", "Admin")';">ตรวจสอบกำไร</a></li>
+                        <li><a class="active" onclick="location.href='@Url.Action("Circulation", "Admin")';">ตรวจสอบยอดขาย</a></li>
+                        <li><a class="active" onclick="location.href='@Url.Action("ViewPN", "partner")';">เพิ่ม แก้ไข(หุ้นส่วน)</a></li>
+                        <li><a class="active" onclick="location.href='@Url.Action("Viewstore", "shop")';">ดูข้อมูลร้านรับซื้อ</a></li>
+                        <li><a class="active" onclick="location.href='@Url.Action("changPassword", "Admin")';">เปลี่ยนรหัสผ่าน</a></li>
+                        <li><a class="active" onclick="location.href='@Url.Action("login", "login")';">ออกจากระบบ</a></li> 
+                    </ul>
+                </div>
+            </div>
+            <div id="content">
+                <font color="#fffff"> <h5 class="title">สวัสดี คุณ @HttpContext.Current.Session["A_name"] @HttpContext.Current.Session["A_lastname"]</h5>  </font>
+                <div class="line"></div>
+                <div class="container-fluid">
+
+                    <div class="animated fadeIn">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong><img src="~/bootstrap/style/images/profit.png"></strong>
+                                    </div>
+                                    <div style="width:100%; height:450px; overflow-y: scroll; scrollbar-arrow-color:blue; scrollbar-face-color: #e7e7e7; scrollbar-3dlight-color: #a0a0a0; scrollbar-darkshadow-color:#888888">
+
+                                        <table class=table8_3>
+                                            
+                                                <th width=15%><center>ชื่อ</th>          
+                                            <th width=15%><center>จำนวนเงินลงทุน</th>
+                                             <th width=15%><center>กำไร</th>
+                                            @foreach (var item in Model.Item1)
+                                            {
+                                                <tr>
+                                                    <td> @Html.DisplayFor(modelItem => item.A_name)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.A_Investment)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.Profit)</td>
+                                                </tr>
+                                            }
+                                           
+                                            @foreach (var item in Model.Item2)
+                                            {
+                                                <tr>
+                                                    <td> @Html.DisplayFor(modelItem => item.P_name)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.P_investment)</td>
+                                                    <td>@Html.DisplayFor(modelItem => item.Profit)</td>
+                                                </tr>
+                                            }
+
+
+                                           
+
+
+                                           
+                                           </table>
+
+
+
+                                       <br><br><br><br>
+                                        <center><img src="~/bootstrap/style/images/logo.png"></center>
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <script src="~/bootstrap/style/js/scripts.js"></script>
+                <!--[if !IE]> -->
+                <script src="~/bootstrap/style/js/jquery.corner.js"></script>
+    </body>
+}
+</html>
+

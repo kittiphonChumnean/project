@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KonKhayHoiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="AID" />
+    </Key>
+    <Property Name="AID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="A_name" Type="varchar" MaxLength="25" />
+    <Property Name="A_lastname" Type="varchar" MaxLength="25" />
+    <Property Name="A_tel" Type="varchar" MaxLength="10" />
+    <Property Name="A_pass" Type="varchar" MaxLength="25" />
+    <Property Name="A_Investment" Type="int" />
+    <Property Name="A_no" Type="varchar" MaxLength="10" />
+    <Property Name="A_subD" Type="varchar" MaxLength="20" />
+    <Property Name="A_sub" Type="varchar" MaxLength="20" />
+    <Property Name="A_ProV" Type="varchar" MaxLength="20" />
+    <Property Name="Profit" Type="int" />
+  </EntityType>
+  <EntityType Name="Circulation">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Invest" Type="int" />
+    <Property Name="Circulation" Type="int" />
+    <Property Name="FID" Type="int" />
+  </EntityType>
+  <EntityType Name="Expenditure">
+    <Key>
+      <PropertyRef Name="EID" />
+    </Key>
+    <Property Name="EID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="E_date" Type="varchar" MaxLength="10" />
+    <Property Name="E_list" Type="varchar" MaxLength="50" />
+    <Property Name="amount" Type="int" />
+    <Property Name="payor" Type="varchar" MaxLength="30" />
+    <Property Name="note" Type="varchar" MaxLength="50" />
+    <Property Name="CID" Type="int" />
+  </EntityType>
+  <EntityType Name="Farm">
+    <Key>
+      <PropertyRef Name="FID" />
+    </Key>
+    <Property Name="FID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="F_name" Type="varchar" MaxLength="30" />
+    <Property Name="F_tel" Type="varchar" MaxLength="10" />
+    <Property Name="dateStart" Type="varchar" MaxLength="10" />
+    <Property Name="MonthOfSale" Type="varchar" MaxLength="10" />
+    <Property Name="F_no" Type="varchar" MaxLength="10" />
+    <Property Name="F_subD" Type="varchar" MaxLength="20" />
+    <Property Name="F_sub" Type="varchar" MaxLength="20" />
+    <Property Name="F_ProV" Type="varchar" MaxLength="20" />
+    <Property Name="Invest" Type="int" />
+    <Property Name="AID" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="last">
+    <Key>
+      <PropertyRef Name="no" />
+    </Key>
+    <Property Name="no" Type="int" Nullable="false" />
+    <Property Name="lastA" Type="int" />
+    <Property Name="lastP" Type="int" />
+    <Property Name="lastS" Type="int" />
+  </EntityType>
+  <EntityType Name="Partner">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="PID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="P_name" Type="varchar" MaxLength="25" />
+    <Property Name="P_lastname" Type="varchar" MaxLength="25" />
+    <Property Name="P_tel" Type="varchar" MaxLength="10" />
+    <Property Name="P_pass" Type="varchar" MaxLength="25" />
+    <Property Name="P_investment" Type="int" />
+    <Property Name="P_no" Type="varchar" MaxLength="10" />
+    <Property Name="P_subD" Type="varchar" MaxLength="20" />
+    <Property Name="P_sub" Type="varchar" MaxLength="20" />
+    <Property Name="P_ProV" Type="varchar" MaxLength="20" />
+    <Property Name="AID" Type="varchar" MaxLength="5" />
+    <Property Name="Invest" Type="int" />
+    <Property Name="Profit" Type="int" />
+  </EntityType>
+  <EntityType Name="Revenues">
+    <Key>
+      <PropertyRef Name="RID" />
+    </Key>
+    <Property Name="RID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="R_date" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="R_list" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Weight" Type="int" Nullable="false" />
+    <Property Name="Shop" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="amount" Type="int" Nullable="false" />
+    <Property Name="payee" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shop">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" />
+    <Property Name="S_name" Type="varchar" MaxLength="20" />
+    <Property Name="S_lastname" Type="varchar" MaxLength="20" />
+    <Property Name="S_tel" Type="varchar" MaxLength="10" />
+    <Property Name="purchasedAmount" Type="int" />
+    <Property Name="S_pass" Type="varchar" MaxLength="15" />
+    <Property Name="S_no" Type="varchar" MaxLength="10" />
+    <Property Name="S_subD" Type="varchar" MaxLength="20" />
+    <Property Name="S_sub" Type="varchar" MaxLength="20" />
+    <Property Name="S_ProV" Type="varchar" MaxLength="20" />
+    <Property Name="state" Type="int" />
+  </EntityType>
+  <Association Name="FK_Circulation_Farm">
+    <End Role="Farm" Type="Self.Farm" Multiplicity="0..1" />
+    <End Role="Circulation" Type="Self.Circulation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farm">
+        <PropertyRef Name="FID" />
+      </Principal>
+      <Dependent Role="Circulation">
+        <PropertyRef Name="FID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Farm_admin">
+    <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+    <End Role="Farm" Type="Self.Farm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="Farm">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Partner_admin">
+    <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+    <End Role="Partner" Type="Self.Partner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="admin">
+        <PropertyRef Name="AID" />
+      </Principal>
+      <Dependent Role="Partner">
+        <PropertyRef Name="AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KonKhayHoiModelStoreContainer">
+    <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Circulation" EntityType="Self.Circulation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Expenditure" EntityType="Self.Expenditure" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Farm" EntityType="Self.Farm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="last" EntityType="Self.last" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Partner" EntityType="Self.Partner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Revenues" EntityType="Self.Revenues" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shop" EntityType="Self.Shop" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Circulation_Farm" Association="Self.FK_Circulation_Farm">
+      <End Role="Farm" EntitySet="Farm" />
+      <End Role="Circulation" EntitySet="Circulation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Farm_admin" Association="Self.FK_Farm_admin">
+      <End Role="admin" EntitySet="admin" />
+      <End Role="Farm" EntitySet="Farm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Partner_admin" Association="Self.FK_Partner_admin">
+      <End Role="admin" EntitySet="admin" />
+      <End Role="Partner" EntitySet="Partner" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

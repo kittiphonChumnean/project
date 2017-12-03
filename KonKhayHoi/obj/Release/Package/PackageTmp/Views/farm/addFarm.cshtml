@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="CoreUI Bootstrap 4 Admin Template">
+    <meta name="author" content="Lukasz Holeczek">
+    <meta name="keyword" content="CoreUI Bootstrap 4 Admin Template">
+    <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
+    <title>Kon Khay Hoi</title>
+    <!-- Icons -->
+    <link href="~/bootstrap/style/css/simple-line-icons.css" rel="stylesheet">
+    <!-- Main styles for this application -->
+    <link href="~/bootstrap/style/css/style.css" rel="stylesheet">
+</head>
+@using (Html.BeginForm())
+{
+    <body class="app flex-row align-items-center">
+        @Html.AntiForgeryToken()
+        <div class="container2">
+
+            <div class="row justify-content-center">
+                <!--/.col-->
+                <div class="col-sm-10">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong><img src="~/bootstrap/style/images/addfarm.png"></strong>
+                        </div>
+                        <div style="width:100%; height: 500px; overflow-y: scroll; scrollbar-arrow-color:blue; scrollbar-face-color: #e7e7e7; scrollbar-3dlight-color: #a0a0a0; scrollbar-darkshadow-color:#888888">
+                            <center>
+                                <font size="3" color="green"> @ViewBag.Message</font><br> <font size="3" color="red">  @ViewBag.Message1@ViewBag.Message2</font><br>
+                            </center>
+                            <div class="card-block">
+                                <div class="row">
+
+                                </div>
+                                <!--/.ชื่อ นามสกุล-->
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+
+                                            <label for="cvv">ชื่อ</label>
+                                            <input type="text" name="name" required="required" class="form-control" id="Sub" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="cvv">นามสกุล</label>
+                                            <input type="text" class="form-control" required="required" name="lastname" id="prov" placeholder="">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="name">ยอดเงินลงทุน</label>
+                                            <input type="text" name="investment" required="required" class="form-control" id="namefarm" placeholder="ของเจ้าของฟาร์ม">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="name">เบอร์โทร</label>
+                                            <input type="text" name="tel" required="required" class="form-control" maxlength="10" id="namefarm" placeholder="ของเจ้าของฟาร์ม">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/.ที่อยู่-->
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="cvv">เลขที่</label>
+                                            <input type="text" class="form-control" required="required" name="no" id="no" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="cvv">ตำบล</label>
+                                            <input type="text" class="form-control" required="required" name="subD" id="sub_d" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="cvv">อำเภอ</label>
+                                            <input type="text" class="form-control" required="required" name="sub" id="name" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="cvv">จังหวัด</label>
+                                            <input type="text" class="form-control" name="proV" required="required" id="lastname" placeholder="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="ccnumber">รหัสผ่าน</label>
+                                            <input type="password" class="form-control" name="pass" required" maxlength="15" id="ccnumber" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ccnumber">ยืนยันรหัสผ่าน</label>
+                                            <input type="password" class="form-control" name="pass2" maxlength="15" required="required" name="pass" id="ccnumber" placeholder="">
+                                        </div><br>
+                                        <div class="form-group form-actions">
+                                            <center>
+                                                <input id="Button1" type="button" value="เข้าสู่ระบบ" class="btn btn-danger btn-lg" onclick="location.href='@Url.Action("login", "login")';">
+                                                <button type="submit" class="btn btn-success btn-lg">&nbsp;&nbsp;&nbsp;สมัครสมาชิก&nbsp;&nbsp;&nbsp;</button>&nbsp;&nbsp;
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap and necessary plugins -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/tether/dist/js/tether.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+
+    </body>
+}
+</html>

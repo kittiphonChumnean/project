@@ -1,0 +1,492 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D4AD2494-7FEF-4DC5-88FB-87E3BB2BDD82}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KonKhayHoi</RootNamespace>
+    <AssemblyName>KonKhayHoi</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bootstrap\assets\css\font-awesome.min.css" />
+    <Content Include="bootstrap\assets\css\ie8.css" />
+    <Content Include="bootstrap\assets\css\ie9.css" />
+    <Content Include="bootstrap\assets\css\images\arrow.svg" />
+    <Content Include="bootstrap\assets\css\images\bars.svg" />
+    <Content Include="bootstrap\assets\css\images\close.svg" />
+    <Content Include="bootstrap\assets\css\main.css" />
+    <Content Include="bootstrap\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="bootstrap\assets\js\ie\backgroundsize.min.htc" />
+    <Content Include="bootstrap\assets\js\ie\html5shiv.js" />
+    <Content Include="bootstrap\assets\js\ie\respond.min.js" />
+    <Content Include="bootstrap\assets\js\jquery.min.js" />
+    <Content Include="bootstrap\assets\js\jquery.scrollex.min.js" />
+    <Content Include="bootstrap\assets\js\jquery.scrolly.min.js" />
+    <Content Include="bootstrap\assets\js\main.js" />
+    <Content Include="bootstrap\assets\js\skel.min.js" />
+    <Content Include="bootstrap\assets\js\util.js" />
+    <Content Include="bootstrap\images\banner.jpg" />
+    <Content Include="bootstrap\images\pic01.jpg" />
+    <Content Include="bootstrap\images\pic02.jpg" />
+    <Content Include="bootstrap\images\pic03.jpg" />
+    <Content Include="bootstrap\images\pic04.jpg" />
+    <Content Include="bootstrap\images\pic05.jpg" />
+    <Content Include="bootstrap\style\css\ie7.css" />
+    <Content Include="bootstrap\style\css\ie8.css" />
+    <Content Include="bootstrap\style\css\ie9.css" />
+    <Content Include="bootstrap\style\css\prettyPhoto.css" />
+    <Content Include="bootstrap\style\css\simple-line-icons.css" />
+    <Content Include="bootstrap\style\css\style.css" />
+    <Content Include="bootstrap\style\images\1.png" />
+    <Content Include="bootstrap\style\images\12.png" />
+    <Content Include="bootstrap\style\images\13.png" />
+    <Content Include="bootstrap\style\images\14.png" />
+    <Content Include="bootstrap\style\images\15.png" />
+    <Content Include="bootstrap\style\images\16.png" />
+    <Content Include="bootstrap\style\images\2.png" />
+    <Content Include="bootstrap\style\images\3.png" />
+    <Content Include="bootstrap\style\images\4.png" />
+    <Content Include="bootstrap\style\images\5.jpg" />
+    <Content Include="bootstrap\style\images\5.png" />
+    <Content Include="bootstrap\style\images\add.png" />
+    <Content Include="bootstrap\style\images\addE.png" />
+    <Content Include="bootstrap\style\images\addfarm.png" />
+    <Content Include="bootstrap\style\images\addfarm1.png" />
+    <Content Include="bootstrap\style\images\addP.png" />
+    <Content Include="bootstrap\style\images\addR.png" />
+    <Content Include="bootstrap\style\images\addshop.png" />
+    <Content Include="bootstrap\style\images\addshop2.png" />
+    <Content Include="bootstrap\style\images\b.png" />
+    <Content Include="bootstrap\style\images\banner.jpg" />
+    <Content Include="bootstrap\style\images\bestvalue1.png" />
+    <Content Include="bootstrap\style\images\bg.jpg" />
+    <Content Include="bootstrap\style\images\bgt.png" />
+    <Content Include="bootstrap\style\images\bgt1.jpg" />
+    <Content Include="bootstrap\style\images\blog-navs.png" />
+    <Content Include="bootstrap\style\images\bullet.png" />
+    <Content Include="bootstrap\style\images\button.png" />
+    <Content Include="bootstrap\style\images\check-table.png" />
+    <Content Include="bootstrap\style\images\codebg.jpg" />
+    <Content Include="bootstrap\style\images\controls.png" />
+    <Content Include="bootstrap\style\images\cross.png" />
+    <Content Include="bootstrap\style\images\datafarm.png" />
+    <Content Include="bootstrap\style\images\datashop.png" />
+    <Content Include="bootstrap\style\images\delete.png" />
+    <Content Include="bootstrap\style\images\dropdown-line.png" />
+    <Content Include="bootstrap\style\images\dropdown.jpg" />
+    <Content Include="bootstrap\style\images\farm.png" />
+    <Content Include="bootstrap\style\images\favicon.png" />
+    <Content Include="bootstrap\style\images\footer-line.png" />
+    <Content Include="bootstrap\style\images\g.jpg" />
+    <Content Include="bootstrap\style\images\hoi.png" />
+    <Content Include="bootstrap\style\images\icon-address.png" />
+    <Content Include="bootstrap\style\images\icon-app.png" />
+    <Content Include="bootstrap\style\images\icon-bag.png" />
+    <Content Include="bootstrap\style\images\icon-behance.png" />
+    <Content Include="bootstrap\style\images\icon-bird.png" />
+    <Content Include="bootstrap\style\images\icon-calc.png" />
+    <Content Include="bootstrap\style\images\icon-cat.png" />
+    <Content Include="bootstrap\style\images\icon-clipboard.png" />
+    <Content Include="bootstrap\style\images\icon-clock.png" />
+    <Content Include="bootstrap\style\images\icon-comment.png" />
+    <Content Include="bootstrap\style\images\icon-construction.png" />
+    <Content Include="bootstrap\style\images\icon-date.png" />
+    <Content Include="bootstrap\style\images\icon-delicious.png" />
+    <Content Include="bootstrap\style\images\icon-deviantart.png" />
+    <Content Include="bootstrap\style\images\icon-digg.png" />
+    <Content Include="bootstrap\style\images\icon-dribbble.png" />
+    <Content Include="bootstrap\style\images\icon-enlarge.png" />
+    <Content Include="bootstrap\style\images\icon-facebook.png" />
+    <Content Include="bootstrap\style\images\icon-fb.png" />
+    <Content Include="bootstrap\style\images\icon-flickr.png" />
+    <Content Include="bootstrap\style\images\icon-foursquare.png" />
+    <Content Include="bootstrap\style\images\icon-friendfeed.png" />
+    <Content Include="bootstrap\style\images\icon-google.png" />
+    <Content Include="bootstrap\style\images\icon-gowalla.png" />
+    <Content Include="bootstrap\style\images\icon-grooveshark.png" />
+    <Content Include="bootstrap\style\images\icon-headphone.png" />
+    <Content Include="bootstrap\style\images\icon-illus.png" />
+    <Content Include="bootstrap\style\images\icon-lamp.png" />
+    <Content Include="bootstrap\style\images\icon-lastfm.png" />
+    <Content Include="bootstrap\style\images\icon-lens.png" />
+    <Content Include="bootstrap\style\images\icon-link.png" />
+    <Content Include="bootstrap\style\images\icon-linkedin.png" />
+    <Content Include="bootstrap\style\images\icon-lock.png" />
+    <Content Include="bootstrap\style\images\icon-mail.png" />
+    <Content Include="bootstrap\style\images\icon-map.png" />
+    <Content Include="bootstrap\style\images\icon-medal.png" />
+    <Content Include="bootstrap\style\images\icon-motion.png" />
+    <Content Include="bootstrap\style\images\icon-music.png" />
+    <Content Include="bootstrap\style\images\icon-note.png" />
+    <Content Include="bootstrap\style\images\icon-pack.png" />
+    <Content Include="bootstrap\style\images\icon-package.png" />
+    <Content Include="bootstrap\style\images\icon-permalink.png" />
+    <Content Include="bootstrap\style\images\icon-play.png" />
+    <Content Include="bootstrap\style\images\icon-plus.png" />
+    <Content Include="bootstrap\style\images\icon-print.png" />
+    <Content Include="bootstrap\style\images\icon-rss.png" />
+    <Content Include="bootstrap\style\images\icon-settings.png" />
+    <Content Include="bootstrap\style\images\icon-skype.png" />
+    <Content Include="bootstrap\style\images\icon-smartphone.png" />
+    <Content Include="bootstrap\style\images\icon-sofa.png" />
+    <Content Include="bootstrap\style\images\icon-tags.png" />
+    <Content Include="bootstrap\style\images\icon-target.png" />
+    <Content Include="bootstrap\style\images\icon-tumblr.png" />
+    <Content Include="bootstrap\style\images\icon-tw.png" />
+    <Content Include="bootstrap\style\images\icon-twitbird.png" />
+    <Content Include="bootstrap\style\images\icon-twitter.png" />
+    <Content Include="bootstrap\style\images\icon-user.png" />
+    <Content Include="bootstrap\style\images\icon-vimeo.png" />
+    <Content Include="bootstrap\style\images\icon-wallet.png" />
+    <Content Include="bootstrap\style\images\icon-web.png" />
+    <Content Include="bootstrap\style\images\icon-youtube.png" />
+    <Content Include="bootstrap\style\images\konKhayHoi.png" />
+    <Content Include="bootstrap\style\images\line-v.png" />
+    <Content Include="bootstrap\style\images\line.png" />
+    <Content Include="bootstrap\style\images\loader.gif" />
+    <Content Include="bootstrap\style\images\logo.png" />
+    <Content Include="bootstrap\style\images\logo1.png" />
+    <Content Include="bootstrap\style\images\logo12.png" />
+    <Content Include="bootstrap\style\images\pass.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="bootstrap\style\images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="bootstrap\style\images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="bootstrap\style\images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="bootstrap\style\images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\default\loader.gif" />
+    <Content Include="bootstrap\style\images\prettyPhoto\default\sprite.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="bootstrap\style\images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="bootstrap\style\images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="bootstrap\style\images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="bootstrap\style\images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="bootstrap\style\images\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="bootstrap\style\images\prettyPhoto\light_square\loader.gif" />
+    <Content Include="bootstrap\style\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="bootstrap\style\images\profile.png" />
+    <Content Include="bootstrap\style\images\profit.png" />
+    <Content Include="bootstrap\style\images\sales.png" />
+    <Content Include="bootstrap\style\images\viewE.png" />
+    <Content Include="bootstrap\style\images\viewP.png" />
+    <Content Include="bootstrap\style\images\viewR.png" />
+    <Content Include="bootstrap\style\images\viewS.png" />
+    <Content Include="bootstrap\style\js\carousel.js" />
+    <Content Include="bootstrap\style\js\ddsmoothmenu.js" />
+    <Content Include="bootstrap\style\js\jquery-1.6.4.min.js" />
+    <Content Include="bootstrap\style\js\jquery.corner.js" />
+    <Content Include="bootstrap\style\js\jquery.easing.1.3.js" />
+    <Content Include="bootstrap\style\js\jquery.flexslider-min.js" />
+    <Content Include="bootstrap\style\js\jquery.jcarousel.js" />
+    <Content Include="bootstrap\style\js\jquery.masonry.min.js" />
+    <Content Include="bootstrap\style\js\jquery.prettyPhoto.js" />
+    <Content Include="bootstrap\style\js\jquery.slickforms.js" />
+    <Content Include="bootstrap\style\js\scripts.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\KonKhayHoi - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\JavaScript.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\farmController.cs" />
+    <Compile Include="Controllers\partnerController.cs" />
+    <Compile Include="Controllers\shopController.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\indexController.cs" />
+    <Compile Include="Controllers\loginController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\admin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Circulation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Expenditure.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Farm.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\last.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Partner.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\profit.cs" />
+    <Compile Include="Models\profit2.cs" />
+    <Compile Include="Models\Revenue.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Shop.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="bootstrap\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="bootstrap\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="bootstrap\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="bootstrap\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="bootstrap\assets\fonts\FontAwesome.otf" />
+    <Content Include="bootstrap\assets\sass\ie8.scss" />
+    <Content Include="bootstrap\assets\sass\ie9.scss" />
+    <Content Include="bootstrap\assets\sass\libs\_functions.scss" />
+    <Content Include="bootstrap\assets\sass\libs\_mixins.scss" />
+    <Content Include="bootstrap\assets\sass\libs\_skel.scss" />
+    <Content Include="bootstrap\assets\sass\libs\_vars.scss" />
+    <Content Include="bootstrap\assets\sass\main.scss" />
+    <Content Include="bootstrap\images\Thumbs.db" />
+    <Content Include="bootstrap\style\images\prettyPhoto\dark_rounded\Thumbs.db" />
+    <Content Include="bootstrap\style\images\prettyPhoto\default\Thumbs.db" />
+    <Content Include="bootstrap\style\images\prettyPhoto\facebook\Thumbs.db" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\login\login.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\index\Index.cshtml" />
+    <Content Include="Views\partner\PNcheckProfit.cshtml" />
+    <Content Include="Views\shop\STdatastore.cshtml" />
+    <Content Include="Views\farm\addRevenue.cshtml" />
+    <Content Include="Views\farm\addFarm.cshtml" />
+    <Content Include="Views\farm\addExpenditure.cshtml" />
+    <Content Include="Views\Admin\viewRevenue.cshtml" />
+    <Content Include="Views\Admin\viewExpenditure.cshtml" />
+    <Content Include="Views\partner\PNexpenditure.cshtml" />
+    <Content Include="Views\partner\PNrevenue.cshtml" />
+    <Content Include="Views\Admin\CheckProfit.cshtml" />
+    <Content Include="Views\partner\ViewPN.cshtml" />
+    <Content Include="Views\partner\addPN.cshtml" />
+    <Content Include="Views\shop\Viewstore.cshtml" />
+    <Content Include="Views\shop\addshop.cshtml" />
+    <Content Include="Views\shop\PNViewstore.cshtml" />
+    <Content Include="Views\Admin\ChangPassword.cshtml" />
+    <Content Include="Views\shop\STchangdatastore.cshtml" />
+    <Content Include="Views\Admin\profile.cshtml" />
+    <Content Include="Views\Admin\Editprofile.cshtml" />
+    <Content Include="Views\farm\Startnewinvast.cshtml" />
+    <Content Include="Views\farm\ConFStartnewinvast.cshtml" />
+    <Content Include="Views\farm\dataFarm.cshtml" />
+    <Content Include="Views\farm\ViewdataFarm.cshtml" />
+    <Content Include="Views\shop\STselectdatafarm.cshtml" />
+    <Content Include="Views\partner\PNChangPassword.cshtml" />
+    <Content Include="Views\shop\STchangPassword.cshtml" />
+    <Content Include="Views\partner\PNcirculation.cshtml" />
+    <Content Include="Views\Admin\Circulation.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49907</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49907/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

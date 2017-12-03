@@ -1,0 +1,603 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KonKhaiHoyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="AID" />
+          </Key>
+          <Property Name="AID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="A_name" Type="varchar" MaxLength="25" />
+          <Property Name="A_lastname" Type="varchar" MaxLength="25" />
+          <Property Name="A_tel" Type="varchar" MaxLength="10" />
+          <Property Name="A_pass" Type="varchar" MaxLength="25" />
+          <Property Name="A_Investment" Type="int" />
+          <Property Name="A_no" Type="varchar" MaxLength="10" />
+          <Property Name="A_subD" Type="varchar" MaxLength="20" />
+          <Property Name="A_sub" Type="varchar" MaxLength="20" />
+          <Property Name="A_ProV" Type="varchar" MaxLength="20" />
+          <Property Name="Profit" Type="int" />
+        </EntityType>
+        <EntityType Name="Circulation">
+          <Key>
+            <PropertyRef Name="CID" />
+          </Key>
+          <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Invest" Type="int" />
+          <Property Name="Circulation" Type="int" />
+          <Property Name="FID" Type="int" />
+        </EntityType>
+        <EntityType Name="Expenditure">
+          <Key>
+            <PropertyRef Name="EID" />
+          </Key>
+          <Property Name="EID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="E_date" Type="varchar" MaxLength="10" />
+          <Property Name="E_list" Type="varchar" MaxLength="50" />
+          <Property Name="amount" Type="int" />
+          <Property Name="payor" Type="varchar" MaxLength="30" />
+          <Property Name="note" Type="varchar" MaxLength="50" />
+          <Property Name="CID" Type="int" />
+        </EntityType>
+        <EntityType Name="Farm">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="F_name" Type="varchar" MaxLength="30" />
+          <Property Name="F_tel" Type="varchar" MaxLength="10" />
+          <Property Name="dateStart" Type="varchar" MaxLength="10" />
+          <Property Name="MonthOfSale" Type="varchar" MaxLength="10" />
+          <Property Name="F_no" Type="varchar" MaxLength="10" />
+          <Property Name="F_subD" Type="varchar" MaxLength="20" />
+          <Property Name="F_sub" Type="varchar" MaxLength="20" />
+          <Property Name="F_ProV" Type="varchar" MaxLength="20" />
+          <Property Name="Invest" Type="int" />
+          <Property Name="AID" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="last">
+          <Key>
+            <PropertyRef Name="no" />
+          </Key>
+          <Property Name="no" Type="int" Nullable="false" />
+          <Property Name="lastA" Type="int" />
+          <Property Name="lastP" Type="int" />
+          <Property Name="lastS" Type="int" />
+        </EntityType>
+        <EntityType Name="Partner">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="P_name" Type="varchar" MaxLength="25" />
+          <Property Name="P_lastname" Type="varchar" MaxLength="25" />
+          <Property Name="P_tel" Type="varchar" MaxLength="10" />
+          <Property Name="P_pass" Type="varchar" MaxLength="25" />
+          <Property Name="P_investment" Type="int" />
+          <Property Name="P_no" Type="varchar" MaxLength="10" />
+          <Property Name="P_subD" Type="varchar" MaxLength="20" />
+          <Property Name="P_sub" Type="varchar" MaxLength="20" />
+          <Property Name="P_ProV" Type="varchar" MaxLength="20" />
+          <Property Name="AID" Type="varchar" MaxLength="5" />
+          <Property Name="Invest" Type="int" />
+          <Property Name="Profit" Type="int" />
+        </EntityType>
+        <EntityType Name="Revenues">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="R_date" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="R_list" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Weight" Type="int" Nullable="false" />
+          <Property Name="Shop" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="amount" Type="int" Nullable="false" />
+          <Property Name="payee" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="CID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="SID" />
+          </Key>
+          <Property Name="SID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" />
+          <Property Name="S_name" Type="varchar" MaxLength="20" />
+          <Property Name="S_lastname" Type="varchar" MaxLength="20" />
+          <Property Name="S_tel" Type="varchar" MaxLength="10" />
+          <Property Name="purchasedAmount" Type="int" />
+          <Property Name="S_pass" Type="varchar" MaxLength="15" />
+          <Property Name="S_no" Type="varchar" MaxLength="10" />
+          <Property Name="S_subD" Type="varchar" MaxLength="20" />
+          <Property Name="S_sub" Type="varchar" MaxLength="20" />
+          <Property Name="S_ProV" Type="varchar" MaxLength="20" />
+          <Property Name="state" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Circulation_Farm">
+          <End Role="Farm" Type="Self.Farm" Multiplicity="0..1" />
+          <End Role="Circulation" Type="Self.Circulation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farm">
+              <PropertyRef Name="FID" />
+            </Principal>
+            <Dependent Role="Circulation">
+              <PropertyRef Name="FID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Expenditure_Circulation">
+          <End Role="Circulation" Type="Self.Circulation" Multiplicity="0..1" />
+          <End Role="Expenditure" Type="Self.Expenditure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Circulation">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Expenditure">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Farm_admin">
+          <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+          <End Role="Farm" Type="Self.Farm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="AID" />
+            </Principal>
+            <Dependent Role="Farm">
+              <PropertyRef Name="AID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Partner_admin">
+          <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+          <End Role="Partner" Type="Self.Partner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="AID" />
+            </Principal>
+            <Dependent Role="Partner">
+              <PropertyRef Name="AID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Revenues_Circulation">
+          <End Role="Circulation" Type="Self.Circulation" Multiplicity="1" />
+          <End Role="Revenues" Type="Self.Revenues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Circulation">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Revenues">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KonKhaiHoyModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Circulation" EntityType="Self.Circulation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Expenditure" EntityType="Self.Expenditure" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Farm" EntityType="Self.Farm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="last" EntityType="Self.last" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partner" EntityType="Self.Partner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Revenues" EntityType="Self.Revenues" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shop" EntityType="Self.Shop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Circulation_Farm" Association="Self.FK_Circulation_Farm">
+            <End Role="Farm" EntitySet="Farm" />
+            <End Role="Circulation" EntitySet="Circulation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Expenditure_Circulation" Association="Self.FK_Expenditure_Circulation">
+            <End Role="Circulation" EntitySet="Circulation" />
+            <End Role="Expenditure" EntitySet="Expenditure" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Farm_admin" Association="Self.FK_Farm_admin">
+            <End Role="admin" EntitySet="admin" />
+            <End Role="Farm" EntitySet="Farm" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Partner_admin" Association="Self.FK_Partner_admin">
+            <End Role="admin" EntitySet="admin" />
+            <End Role="Partner" EntitySet="Partner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Revenues_Circulation" Association="Self.FK_Revenues_Circulation">
+            <End Role="Circulation" EntitySet="Circulation" />
+            <End Role="Revenues" EntitySet="Revenues" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KonKhaiHoyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="AID" />
+          </Key>
+          <Property Name="AID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="A_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="A_lastname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="A_tel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="A_pass" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="A_Investment" Type="Int32" />
+          <Property Name="A_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="A_subD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="A_sub" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="A_ProV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Profit" Type="Int32" />
+          <NavigationProperty Name="Farms" Relationship="Self.FK_Farm_admin" FromRole="admin" ToRole="Farm" />
+          <NavigationProperty Name="Partners" Relationship="Self.FK_Partner_admin" FromRole="admin" ToRole="Partner" />
+        </EntityType>
+        <EntityType Name="Circulation">
+          <Key>
+            <PropertyRef Name="CID" />
+          </Key>
+          <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Invest" Type="Int32" />
+          <Property Name="Circulation1" Type="Int32" />
+          <Property Name="FID" Type="Int32" />
+          <NavigationProperty Name="Farm" Relationship="Self.FK_Circulation_Farm" FromRole="Circulation" ToRole="Farm" />
+          <NavigationProperty Name="Expenditures" Relationship="Self.FK_Expenditure_Circulation" FromRole="Circulation" ToRole="Expenditure" />
+          <NavigationProperty Name="Revenues" Relationship="Self.FK_Revenues_Circulation" FromRole="Circulation" ToRole="Revenues" />
+        </EntityType>
+        <EntityType Name="Expenditure">
+          <Key>
+            <PropertyRef Name="EID" />
+          </Key>
+          <Property Name="EID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="E_date" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="E_list" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="payor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="note" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CID" Type="Int32" />
+          <NavigationProperty Name="Circulation" Relationship="Self.FK_Expenditure_Circulation" FromRole="Expenditure" ToRole="Circulation" />
+        </EntityType>
+        <EntityType Name="Farm">
+          <Key>
+            <PropertyRef Name="FID" />
+          </Key>
+          <Property Name="FID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="F_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="F_tel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dateStart" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MonthOfSale" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="F_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="F_subD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="F_sub" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="F_ProV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Invest" Type="Int32" />
+          <Property Name="AID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="admin" Relationship="Self.FK_Farm_admin" FromRole="Farm" ToRole="admin" />
+          <NavigationProperty Name="Circulations" Relationship="Self.FK_Circulation_Farm" FromRole="Farm" ToRole="Circulation" />
+        </EntityType>
+        <EntityType Name="last">
+          <Key>
+            <PropertyRef Name="no" />
+          </Key>
+          <Property Name="no" Type="Int32" Nullable="false" />
+          <Property Name="lastA" Type="Int32" />
+          <Property Name="lastP" Type="Int32" />
+          <Property Name="lastS" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Partner">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="P_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="P_lastname" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="P_tel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="P_pass" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="P_investment" Type="Int32" />
+          <Property Name="P_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="P_subD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="P_sub" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="P_ProV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Invest" Type="Int32" />
+          <Property Name="Profit" Type="Int32" />
+          <NavigationProperty Name="admin" Relationship="Self.FK_Partner_admin" FromRole="Partner" ToRole="admin" />
+        </EntityType>
+        <EntityType Name="Revenue">
+          <Key>
+            <PropertyRef Name="RID" />
+          </Key>
+          <Property Name="RID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="R_date" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="R_list" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Weight" Type="Int32" Nullable="false" />
+          <Property Name="Shop" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="amount" Type="Int32" Nullable="false" />
+          <Property Name="payee" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Circulation" Relationship="Self.FK_Revenues_Circulation" FromRole="Revenues" ToRole="Circulation" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="SID" />
+          </Key>
+          <Property Name="SID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="S_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="S_lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="S_tel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="purchasedAmount" Type="Int32" />
+          <Property Name="S_pass" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="S_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="S_subD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="S_sub" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="S_ProV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Farm_admin">
+          <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+          <End Role="Farm" Type="Self.Farm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="AID" />
+            </Principal>
+            <Dependent Role="Farm">
+              <PropertyRef Name="AID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Partner_admin">
+          <End Role="admin" Type="Self.admin" Multiplicity="0..1" />
+          <End Role="Partner" Type="Self.Partner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="admin">
+              <PropertyRef Name="AID" />
+            </Principal>
+            <Dependent Role="Partner">
+              <PropertyRef Name="AID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Circulation_Farm">
+          <End Role="Farm" Type="Self.Farm" Multiplicity="0..1" />
+          <End Role="Circulation" Type="Self.Circulation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farm">
+              <PropertyRef Name="FID" />
+            </Principal>
+            <Dependent Role="Circulation">
+              <PropertyRef Name="FID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Expenditure_Circulation">
+          <End Role="Circulation" Type="Self.Circulation" Multiplicity="0..1" />
+          <End Role="Expenditure" Type="Self.Expenditure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Circulation">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Expenditure">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Revenues_Circulation">
+          <End Role="Circulation" Type="Self.Circulation" Multiplicity="1" />
+          <End Role="Revenues" Type="Self.Revenue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Circulation">
+              <PropertyRef Name="CID" />
+            </Principal>
+            <Dependent Role="Revenues">
+              <PropertyRef Name="CID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KonKhayHoiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admins" EntityType="Self.admin" />
+          <EntitySet Name="Circulations" EntityType="Self.Circulation" />
+          <EntitySet Name="Expenditures" EntityType="Self.Expenditure" />
+          <EntitySet Name="Farms" EntityType="Self.Farm" />
+          <EntitySet Name="lasts" EntityType="Self.last" />
+          <EntitySet Name="Partners" EntityType="Self.Partner" />
+          <EntitySet Name="Revenues" EntityType="Self.Revenue" />
+          <EntitySet Name="Shops" EntityType="Self.Shop" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_Farm_admin" Association="Self.FK_Farm_admin">
+            <End Role="admin" EntitySet="admins" />
+            <End Role="Farm" EntitySet="Farms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Partner_admin" Association="Self.FK_Partner_admin">
+            <End Role="admin" EntitySet="admins" />
+            <End Role="Partner" EntitySet="Partners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Circulation_Farm" Association="Self.FK_Circulation_Farm">
+            <End Role="Farm" EntitySet="Farms" />
+            <End Role="Circulation" EntitySet="Circulations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Expenditure_Circulation" Association="Self.FK_Expenditure_Circulation">
+            <End Role="Circulation" EntitySet="Circulations" />
+            <End Role="Expenditure" EntitySet="Expenditures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Revenues_Circulation" Association="Self.FK_Revenues_Circulation">
+            <End Role="Circulation" EntitySet="Circulations" />
+            <End Role="Revenues" EntitySet="Revenues" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KonKhaiHoyModelStoreContainer" CdmEntityContainer="KonKhayHoiEntities">
+          <EntitySetMapping Name="admins">
+            <EntityTypeMapping TypeName="KonKhaiHoyModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="AID" ColumnName="AID" />
+                <ScalarProperty Name="A_name" ColumnName="A_name" />
+                <ScalarProperty Name="A_lastname" ColumnName="A_lastname" />
+                <ScalarProperty Name="A_tel" ColumnName="A_tel" />
+                <ScalarProperty Name="A_pass" ColumnName="A_pass" />
+                <ScalarProperty Name="A_Investment" ColumnName="A_Investment" />
+                <ScalarProperty Name="A_no" ColumnName="A_no" />
+                <ScalarProperty Name="A_subD" ColumnName="A_subD" />
+                <ScalarProperty Name="A_sub" ColumnName="A_sub" />
+                <ScalarProperty Name="A_ProV" ColumnName="A_ProV" />
+                <ScalarProperty Name="Profit" ColumnName="Profit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Circulations">
+            <EntityTypeMapping TypeName="KonKhaiHoyModel.Circulation">
+              <MappingFragment StoreEntitySet="Circulation">
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="Invest" ColumnName="Invest" />
+                <ScalarProperty Name="Circulation1" ColumnName="Circulation" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expenditures">
+            <EntityTypeMapping TypeName="KonKhaiHoyModel.Expenditure">
+              <MappingFragment StoreEntitySet="Expenditure">
+                <ScalarProperty Name="EID" ColumnName="EID" />
+                <ScalarProperty Name="E_date" ColumnName="E_date" />
+                <ScalarProperty Name="E_list" ColumnName="E_list" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="payor" ColumnName="payor" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Farms">
+            <EntityTypeMapping TypeName="KonKhaiHoyModel.Farm">
+              <MappingFragment StoreEntitySet="Farm">
+                <ScalarProperty Name="FID" ColumnName="FID" />
+                <ScalarProperty Name="F_name" ColumnName="F_name" />
+                <ScalarProperty Name="F_tel" ColumnName="F_tel" />
+                <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+                <ScalarProperty Name="MonthOfSale" ColumnName="MonthOfSale" />
+                <ScalarProperty Name="F_no" ColumnName="F_no" />
+                <ScalarProperty Name="F_subD" ColumnName="F_subD" />
+                <ScalarProperty Name="F_sub" ColumnName="F_sub" />
+                <ScalarProperty Name="F_ProV" ColumnName="F_ProV" />
+                <ScalarProperty Name="Invest" ColumnName="Invest" />
+                <ScalarProperty Name="AID" ColumnName="AID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lasts">
+            <EntityTypeMapping TypeName="KonKhaiHoyModel.last">
+              <MappingFragment StoreEntitySet="last">
+                <ScalarProperty Name="no" ColumnName="no" />
+                <ScalarProperty Name="lastA" ColumnName="lastA" />
+                <ScalarProperty Name="lastP" ColumnName="lastP" />
+                <ScalarProperty Name="lastS" ColumnName="lastS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partners">
+            <EntityTypeMapping TypeName="KonKhaiHoyModel.Partner">
+              <MappingFragment StoreEntitySet="Partner">
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="P_name" ColumnName="P_name" />
+                <ScalarProperty Name="P_lastname" ColumnName="P_lastname" />
+                <ScalarProperty Name="P_tel" ColumnName="P_tel" />
+                <ScalarProperty Name="P_pass" ColumnName="P_pass" />
+                <ScalarProperty Name="P_investment" ColumnName="P_investment" />
+                <ScalarProperty Name="P_no" ColumnName="P_no" />
+                <ScalarProperty Name="P_subD" ColumnName="P_subD" />
+                <ScalarProperty Name="P_sub" ColumnName="P_sub" />
+                <ScalarProperty Name="P_ProV" ColumnName="P_ProV" />
+                <ScalarProperty Name="AID" ColumnName="AID" />
+                <ScalarProperty Name="Invest" ColumnName="Invest" />
+                <ScalarProperty Name="Profit" ColumnName="Profit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Revenues">
+            <EntityTypeMapping TypeName="KonKhaiHoyModel.Revenue">
+              <MappingFragment StoreEntitySet="Revenues">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="R_date" ColumnName="R_date" />
+                <ScalarProperty Name="R_list" ColumnName="R_list" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Shop" ColumnName="Shop" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="payee" ColumnName="payee" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shops">
+            <EntityTypeMapping TypeName="KonKhaiHoyModel.Shop">
+              <MappingFragment StoreEntitySet="Shop">
+                <ScalarProperty Name="SID" ColumnName="SID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="S_name" ColumnName="S_name" />
+                <ScalarProperty Name="S_lastname" ColumnName="S_lastname" />
+                <ScalarProperty Name="S_tel" ColumnName="S_tel" />
+                <ScalarProperty Name="purchasedAmount" ColumnName="purchasedAmount" />
+                <ScalarProperty Name="S_pass" ColumnName="S_pass" />
+                <ScalarProperty Name="S_no" ColumnName="S_no" />
+                <ScalarProperty Name="S_subD" ColumnName="S_subD" />
+                <ScalarProperty Name="S_sub" ColumnName="S_sub" />
+                <ScalarProperty Name="S_ProV" ColumnName="S_ProV" />
+                <ScalarProperty Name="state" ColumnName="state" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="KonKhaiHoyModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
